@@ -1,0 +1,277 @@
+:root {
+  --text-color: rgb(231, 231, 231);
+  --back-color: rgba(18, 18, 18, 1);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--back-color);
+    font-family: "Poppins", sans-serif;
+    /* background: linear-gradient(to bottom, #000000, #1b1204, rgba(108, 89, 60, 1)); */
+    background: rgb(27, 27, 27);
+    background-attachment: fixed; /* biar ikut scroll */
+    color: var(--text-color);
+}
+
+/* ================================================================== */
+/* ================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(8px, 1vw, 20px) clamp(12px, 4vw, 40px);
+    background-color: rgb(27, 27, 27);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+}
+
+.navbar img {
+    width: clamp(18px, 10vw, 50px);
+}
+
+.navbar i {
+    font-size: clamp(16px, 8vw, 40px);
+}
+
+.navbar .menu-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar .menu-nav a {
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0 0.4rem;
+    transition: 0.7s ease;
+    border-radius: 1rem;
+}
+
+.navbar .menu-nav a:hover {
+    color: var(--back-color);
+    background-color: rgba(253, 204, 81, 1);
+    border-radius: 1rem;
+}
+/* ================================================================== */
+/* ================================================================== */
+.side-nav {
+    background-color: rgb(27, 27, 27);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    margin-top: 3rem;
+    padding: 5rem;
+    z-index: 100;
+    text-align: center;
+    transition: 0.6s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active {
+    right: 0;
+}
+
+.side-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* background-color: brown; */
+}
+
+.side-nav ul li{
+    text-decoration: none;
+    list-style: none;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 1.4rem;
+    transition: 0.5s ease;
+    color: white;
+}
+
+.side-nav ul li:hover {
+    background-color: rgb(27, 27, 27);
+}
+/* ================================================================== */
+/* ================================================================== */
+
+.content {
+    margin-top: 10rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pilh {
+    display: flex;
+    gap: 10px;
+    overflow: auto;
+}
+
+.pilh::-webkit-scrollbar {
+    display: none;
+}
+
+.pilh button {
+    padding: 1rem 1rem;
+    border-radius: 20px;
+    border: solid var(--text-color) 1px;
+    /* border: none; */
+    background-color: transparent;
+    color: var(--back-color);
+    font-size: 12px;
+    flex-shrink: 0;
+    color: var(--text-color);
+}
+
+.pilh button:hover {
+    background-color: rgb(255, 176, 130);
+    cursor: pointer;
+}
+
+.kata {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* gap: 1rem; */
+    padding: 1rem;
+    background-color: rgb(34, 34, 34);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.836);
+}
+
+.card img {
+    width: 8rem;
+    margin-bottom: 1rem;
+}
+
+.card .txt {
+    width: 100%;
+    text-align: center;
+    color: var(--text-color);
+}
+
+/* =============================================================== */
+/* =============================================================== */
+/* =============================================================== */
+
+@media (max-width: 575.98px) {
+    .navbar .menu-nav {
+        display: none;
+    }
+
+    .kata {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .content {
+        margin-top: 20%;
+    }
+
+    .card img {
+        width: 5rem;
+    }
+}
+
+@media (min-width: 576px) and (max-width:767.98px){
+    .navbar .menu-nav {
+        display: none;
+    }
+
+    .kata {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width:991.98px) {
+    .navbar i {
+        display: none;
+    }
+
+    .content {
+        margin-left: 6rem;
+        margin-right: 6rem;
+    }
+
+    .kata {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 992px) and (max-width:1199.98px) {
+    .navbar i {
+        display: none;
+    }
+
+    .content {
+        margin-left: 8rem;
+        margin-right: 8rem;
+    }
+
+    .page-three .grid-two {
+        justify-content: center;
+    }
+
+    .image-info {
+    height: 28rem;
+    }
+
+    .kata {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1200px) and (max-width:1399.98px) {
+    .navbar i {
+        display: none;
+    }
+
+    .content {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+
+    .page-three .grid-two {
+        justify-content: center;
+    }
+
+    .kata {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (min-width: 1400px) {
+    .navbar i {
+        display: none;
+    }
+
+    .content {
+        margin-left: 18rem;
+        margin-right: 18rem;
+    }
+
+    .kata {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album</title>
+    <link rel="stylesheet" href="album.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!--  -->
+
+    <!--  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <!--  -->
+</head>
+<body>
+    <nav class="navbar">
+        <!-- <h1>LOGO</h1> -->
+        <img src="asset/logoembal.png">
+        <div class="menu-nav">
+            <a>Belajar</a>
+            <a>Album</a>
+            <a>Tentang Kami</a>
+            <a>Kontak</a>
+        </div>
+         <i class="fa-solid fa-bars" id="tomb"></i>
+    </nav>
+
+    <section class="content">
+
+        <div class="side-nav" id="side">
+            <ul>
+                <li>Belajar</li>
+                <li>Album</li>
+                <li>Tentang kami</li>
+                <li>Kontak</li>
+            </ul>
+        </div>
+
+        <h2>Album</h2>
+
+        <div class="box-one">
+
+            <div class="card">
+                <div class="img"><img src="./asset/1.jpg"></div>
+                <div class="info">
+                    <h2>Pakaian Adat</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum, necessitatibus! Quos quasi dolorem quisquam odit tempora dicta dolore tenetur repellat.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="img"><img src="./asset/1.jpg"></div>
+                <div class="info">
+                    <h2>Pakaian Adat</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum, necessitatibus! Quos quasi dolorem quisquam odit tempora dicta dolore tenetur repellat.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="img"><img src="./asset/1.jpg"></div>
+                <div class="info">
+                    <h2>Pakaian Adat</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum, necessitatibus! Quos quasi dolorem quisquam odit tempora dicta dolore tenetur repellat.</p>
+                </div>
+            </div>
+
+        </div>
+
+<!-- ================= Video ================= -->
+ <section class="video-box">
+    <div class="player" class="player">
+        <video class="video" src="asset/Musik sawet Maluku.mp4"></video>
+
+        <!-- Big Play Button -->
+        <div class="big-play" class="bigPlay"><i class="fa-solid fa-play"></i></div>
+        <!-- Big Play Button -->
+
+        <div class="controls">
+
+            <div>
+                <input type="range" class="progress" class="progress" value="0" min="0" max="100">
+                <div class="tooltip" class="tooltip">0:00</div>
+            </div>
+
+            <div class="control-row">
+
+                <div>
+                <button class="playPause"><i class="fa-solid fa-play"></i></button>
+                <button class="skipBack"><i class="fa-solid fa-backward"></i></button>
+                <button class="skipForward"><i class="fa-solid fa-forward"></i></button>
+                </div>
+                <div class="look">
+                    <!-- Volume with icon -->
+                    <div class="volume-wrapper">
+                    <button class="volumeBtn"><i class="fa-solid fa-volume-high"></i></button>
+                    <input type="range" class="volume" min="0" max="1" step="0.05" value="1">
+                    </div>
+                    <span class="time" class="time">0:00 / 0:00</span>
+                    <button class="pip"><i class="fa-solid fa-clone"></i></button>
+                    <button class="fullscreen"><i class="fa-solid fa-expand"></i></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <h2>Akhir Cerita Cinta</h2>
+</section>
+<!-- ================= Video ================= -->
+        
+        <div class="wisata">
+        <h2>Destinasi Wisata</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, quia quo fugit fuga culpa dicta repellat possimus repellendus rerum nesciunt!</p>
+        </div>
+
+<!-- ======================================================================= -->
+<!-- ======================================================================= -->
+
+        <div class="box-two">
+
+            <div class="card">
+                <h2>Kota Tual</h2>
+                <div class="img"><img id="mainImage" src="./asset/1.jpg" alt="gambar utama" class="main-img"></div>
+                <div class="info">
+                    <h2 id="nama">Pakaian Adat</h2>
+                    <p id="teks">Ini adalah deskripsi singkat tentang pakaian adat di Kota Tual.</p>
+                </div>
+                <!--  -->
+                <div class="wrapper">
+                    <button class="nav-btn left">&#8249;</button>
+                    <div class="scroll-container scrollMenu">
+
+                        <div class="item">
+                            <img src="./asset/2.jpg" 
+                            data-nama="Rumah Adat" 
+                            data-deskripsi="Ini adalah deskripsi singkat tentang pakaian adat di Kota Tual."
+                            onclick="gantiGambar(this)">
+                        </div>
+
+                        <div class="item">
+                            <img src="./asset/2.jpg" 
+                            data-nama="Rumah Adat" 
+                            data-deskripsi="Ini adalah deskripsi singkat tentang pakaian adat di Kota Tual."
+                            onclick="gantiGambar(this)">
+                        </div>
+
+                        <div class="item">
+                            <img src="./asset/2.jpg" 
+                            data-nama="Rumah Adat" 
+                            data-deskripsi="Ini adalah deskripsi singkat tentang pakaian adat di Kota Tual."
+                            onclick="gantiGambar(this)">
+                        </div>
+
+                        <div class="item">
+                            <img src="./asset/2.jpg" 
+                            data-nama="Rumah Adat" 
+                            data-deskripsi="Ini adalah deskripsi singkat tentang pakaian adat di Kota Tual."
+                            onclick="gantiGambar(this)">
+                        </div>
+
+                        <div class="item">
+                            <img src="./asset/2.jpg" 
+                            data-nama="Rumah Adat" 
+                            data-deskripsi="Ini adalah deskripsi singkat tentang pakaian adat di Kota Tual."
+                            onclick="gantiGambar(this)">
+                        </div>
+
+                        <div class="item">
+                            <img src="./asset/2.jpg" 
+                            data-nama="Rumah Adat" 
+                            data-deskripsi="Ini adalah deskripsi singkat tentang pakaian adat di Kota Tual."
+                            onclick="gantiGambar(this)">
+                        </div>
+                        
+                    </div>
+                    <button class="nav-btn right">&#8250;</button>
+                </div>
+                <!--  -->
+            </div>
+        </div>
+<!-- ======================================================================= -->
+<!-- ======================================================================= -->
+    </section>
+
+    <script>
+    function gantiGambar(el) {
+      // ambil elemen utama
+      document.getElementById("mainImage").src = el.src;
+      document.getElementById("nama").textContent = el.dataset.nama;
+      document.getElementById("teks").textContent = el.dataset.deskripsi;
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

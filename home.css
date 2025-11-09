@@ -1,0 +1,1008 @@
+:root {
+  --text-color: rgb(231, 231, 231);
+  --back-color: rgba(18, 18, 18, 1);
+}
+
+  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Roboto:wght@300;400;500;900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background-color: rgb(10, 10, 10); */
+    /* background-color: black; */
+    background-color: white;
+    color: var(--back-color);
+    font-family: "Poppins", sans-serif;
+}
+/* ================================================================== */
+/* ================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(8px, 1vw, 20px) clamp(12px, 4vw, 40px);
+    /* background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); */
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.158);
+}
+
+.navbar img {
+    width: clamp(18px, 10vw, 50px);
+}
+
+.navbar i {
+    font-size: clamp(16px, 8vw, 40px);
+}
+
+.navbar .menu-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar .menu-nav a {
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0 0.4rem;
+    transition: 0.7s ease;
+    border-radius: 1rem;
+}
+
+.navbar .menu-nav a:hover {
+    color: var(--back-color);
+    background-color: rgba(253, 204, 81, 1);
+    border-radius: 1rem;
+}
+/* ================================================================== */
+/* ================================================================== */
+.side-nav {
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    margin-top: 5rem;
+    padding: 5rem;
+    z-index: 100;
+    text-align: center;
+    transition: 0.6s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active {
+    right: 0;
+}
+
+.side-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.side-nav ul li{
+    text-decoration: none;
+    list-style: none;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 1.4rem;
+    transition: 0.5s ease;
+}
+
+.side-nav ul li:hover {
+    background-color: rgb(27, 27, 27);
+}
+/* ================================================================== */
+/* ================================================================== */
+
+.page-one{
+    height: 100vh; /* hero penuh 1 layar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./asset/scscsc.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+/* ============================================= */
+/* ============================================= */
+.text-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text-left button {
+    margin-top: 2rem;
+    width: fit-content;
+    font-size: clamp(14px, 2vw, 14px);
+    padding: clamp(8px, 1.5vw, 16px) clamp(16px, 3vw, 32px);
+    border-radius: 2rem;
+    font-weight: 500;
+    border: none;
+    background-color: rgb(255, 229, 162);
+    color: var(--back-color);
+    cursor: pointer;
+}
+
+.text-left h1 {
+    font-size: clamp(35px, 5vw, 84px);
+}
+
+.text-right {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    text-align: center;
+    padding: 12px;
+    font-size: 1.4rem;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+    height: 6rem;
+}
+
+.suport {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 2rem;
+}
+
+.suport img {
+    width: 3rem;
+}
+.embal {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(100px, 20vw, 120px);
+    z-index: 0;
+}
+.pohon1 {
+    position: absolute;
+    width: clamp(200px, 50vw, 300px);
+    bottom: 6px;
+    left: -80px;
+    z-index: -1;
+    transform-origin: bottom center; /* titik rotasi di pangkal pohon */
+    animation: goyangPohon 5s ease-in-out infinite alternate;
+}
+
+@keyframes goyangPohon {
+    0% {
+        transform: rotate(-2deg);
+    }
+    100% {
+        transform: rotate(2deg);
+    }
+}
+.pohon2 {
+    position: absolute;
+    width: clamp(200px, 50vw, 300px);
+    bottom: 6px;
+    right: -80px;
+    z-index: -1;
+    transform-origin: bottom center; /* titik rotasi di pangkal pohon */
+    animation: goyangPohon2 5s ease-in-out infinite alternate;
+    transform: scaleX(-1);
+}
+
+@keyframes goyangPohon2 {
+    0% {
+        transform: scaleX(-1) rotate(-2deg);
+    }
+    100% {
+        transform: scaleX(-1) rotate(2deg);
+    }
+}
+
+.cowok {
+    position: absolute;
+    width: clamp(150px, 30vw, 290px);
+    bottom: 6px;
+    z-index: -1;
+    right: 2%;
+    transform-origin: bottom center; /* titik rotasi di pangkal pohon */
+    animation: badan 3s ease-in-out infinite alternate;
+}
+
+@keyframes badan {
+    0% {
+        transform: rotate(-2deg);
+    }
+    100% {
+        transform: rotate(2deg);
+    }
+}
+.cewek {
+    position: absolute;
+    width: clamp(150px, 30vw, 290px);
+    bottom: 6px;
+    z-index: -1;
+    left: 2%;
+    transform-origin: bottom center; /* titik rotasi di pangkal pohon */
+    animation: badan2 3s ease-in-out infinite alternate;
+    transform: scaleX(-1);
+}
+
+@keyframes badan2 {
+    0% {
+        transform: scaleX(-1) rotate(-2deg);
+    }
+    100% {
+        transform: scaleX(-1) rotate(2deg);
+    }
+}
+/* ============================================= */
+/* ============================================= */
+@keyframes changewidth {
+        from {
+            width: 0%;
+        }
+
+        to {
+            width: 100%;
+        }
+    }
+#dynamicContent {
+        white-space: nowrap;
+        font-weight: bold;
+    }
+/* ============================================= */
+/* ============================================= */
+.page-two {
+    /* height: 80vh; */
+    /* border-bottom: solid #bbbbbb 2px; */
+    /* padding: 5rem 0; */
+    position: relative;
+    overflow: hidden;
+}
+
+.page-two .mode {
+    font-family: "BBH Sans Hegarty", sans-serif;
+    text-align: center;
+    font-size: clamp(30px, 5vw, 84px);
+    color: #0f0f0f;
+    font-weight: 300;
+}
+
+.card-belajar {
+  display: grid;
+  grid-template-columns: repeat(4, auto); /* 2 kolom fix */
+  justify-content: center; /* biar grid di tengah */
+  align-content: center;
+  gap: 20px 30px; /* jarak antar card: vertikal 20px, horizontal 30px */
+  margin: 40px auto;
+  width: fit-content; /* biar grid ukurannya ngikut total lebar card */
+}
+
+.card-blj {
+ background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  width: 200px; /* ukuran tetap */
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.card-blj a {
+    position: absolute;
+    bottom: 13%;
+    width: fit-content;
+    font-size: clamp(14px, 2vw, 14px);
+    padding: clamp(8px, 1.5vw, 13px) clamp(16px, 3vw, 32px);
+    border-radius: 1rem;
+    font-weight: 700;
+    border: none;
+    background-color: #f6b11c;
+    box-shadow: 0 4px 0 #d69318;
+    color: #0f0f0f;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.motfsat {
+    position: absolute;
+    width: clamp(100px, 20vw, 320px);
+    bottom: -4px;
+    left: -4px;
+    z-index: -2;
+
+}
+/* ============================================= */
+/* ============================================= */
+
+/* ======================================== */
+/* ======================================== */
+.wrapper {
+      display: flex;
+      align-items: center;
+      border-radius: 20px;
+    }
+    
+    .scroll-container {
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE & Edge */
+    }
+
+    .scroll-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+
+    .item {
+      flex: 0 0 auto;
+      margin: 5px;
+      padding: 8px 16px;
+      background: #333;
+      border-radius: 20px;
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+      height: 25rem;
+      width: 15rem;
+      transition: background 0.3s;
+    }
+
+    .item:hover {
+      background: #555;
+    }
+
+    .nav-btn {
+      background: #222;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 5rem;
+      margin: 0 5px;
+      z-index: 1;
+    }
+
+    .left {
+        display: none;
+    }
+
+    .right {
+        display: none;
+    }
+
+/* ======================================== */
+/* ======================================== */
+
+.image-info {
+    width: 100%;
+    height: 18rem;
+    background-color: brown;
+}
+
+/* ======================================== */
+/* ======================================== */
+
+/* ======================================== */
+/* ======================================== */
+.page-three {
+    position: relative;
+    overflow: hidden;
+}
+
+.materi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 2rem; */
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.mat-img img {
+    width: clamp(150px, 30vw, 295px);
+}
+
+.mat-pilh {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mat {
+    width: 25rem;
+    border-radius: 1rem;
+    padding: 13px;
+    background: rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.motfdu {
+    position: absolute;
+    z-index: -2;
+    bottom: 31.5%;
+    right: -20px;
+    width: clamp(150px, 40vw, 80rem);
+}
+/* ======================================== */
+/* ======================================== */
+.page-four {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.page-four h2 {
+    font-family: "BBH Sans Hegarty", sans-serif;
+    font-size: clamp(20px, 5vw, 40px);
+    color: var(--back-color);
+    font-weight: 300;;
+}
+
+.bahasa {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* background-color: #ffd000; */
+    width: 100%;
+}
+
+.bahasa-text {
+    width: 40vw;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: var(--back-color);
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.bahasa-text button {
+    width: fit-content;
+    font-size: clamp(14px, 2vw, 14px);
+    padding: clamp(8px, 1.5vw, 13px) clamp(16px, 3vw, 32px);
+    border-radius: 1rem;
+    font-weight: 700;
+    border: none;
+    background-color: #ffe2a4;
+    box-shadow: 0 4px 0 #b49459;
+    color: #0f0f0f;
+    cursor: pointer;
+}
+
+.bahasa .tnya {
+    width: clamp(150px, 30vw, 195px);
+}
+/* ======================================== */
+/* ======================================== */
+main {
+  position: relative;
+  width: calc(min(90rem, 90%));
+  margin: 0 auto;
+  min-height: 100vh;
+  column-gap: 3rem;
+  padding-block: min(20vh, 3rem);
+}
+
+
+
+main > div h1 {
+  text-transform: capitalize;
+  letter-spacing: 0.8px;
+  font-family: "BBH Sans Hegarty", sans-serif;
+  font-weight: 900;
+  font-size: clamp(3.4375rem, 3.25rem + 0.75vw, 4rem);
+  background-color: #005baa;
+  background-image: linear-gradient(45deg, #ffdf2b, #ff922b);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+
+main > div p {
+  line-height: 1.6;
+}
+
+main a {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #717171;
+  font-weight: 500;
+  background: #fff;
+  border-radius: 3.125rem;
+  transition: 0.3s ease-in-out;
+}
+
+main > div > a {
+  border: 2px solid #c2c2c2;
+  margin-top: 2.188rem;
+  margin-bottom: 2.188rem;
+  padding: 0.625rem 1.875rem;
+}
+
+main > div > a:hover {
+  border: 0.125rem solid #005baa;
+  color: #005baa;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 3.125rem;
+  height: 40rem;
+}
+
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-active {
+  background: #fff;
+}
+
+.swiper-pagination {
+  bottom: 1.25rem !important;
+}
+
+.swiper-slide {
+  width: 18.75rem;
+  height: 28.125rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: self-start;
+  border-radius: 2rem;
+}
+
+.swiper-slide-active div {
+  display: block;
+  opacity: 1;
+}
+
+.swiper-slide--one {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url(./asset/keii.jpeg)
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--two {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url(./asset/keii.jpeg)
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--three {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url(./asset/keii.jpeg)
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--four {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url(./asset/keii.jpeg)
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--five {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url(./asset/keii.jpeg)
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right {
+  background-image: none;
+}
+@media screen and (min-width: 93.75rem) {
+  .swiper {
+    width: 85%;
+  }
+}
+/* ======================================== */
+/* ======================================== */
+
+.faq-section {
+    background-color: #dbdbdb;
+    color: #f1f1f1;
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 20px;
+    color: #0f0f0f;
+  }
+
+  .faq-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #333;
+    margin-bottom: 15px;
+  }
+
+  .faq-question {
+    background: none;
+    font-size: 1.1rem;
+    text-align: left;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background: rgba(22, 22, 22, 0.979);
+    color: white;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    padding: 0 15px;
+  }
+
+  .faq-answer p,
+  .faq-answer ul {
+    margin: 15px 0;
+    line-height: 1.6;
+  }
+
+  .faq-answer ul {
+    list-style-type: square;
+    padding-left: 20px;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 400px;
+    padding-bottom: 15px;
+  }
+
+/* ======================================== */
+/* ======================================== */
+.tentang-kami {
+    color: var(--back-color);
+    padding: 70px 20px;
+    border-radius: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .tentang-kami .title {
+    text-align: center;
+    color: var(--back-color);
+    font-size: 2.3rem;
+    margin-bottom: 25px;
+  }
+
+  .tentang-kami .subtitle {
+    text-align: center;
+    color: var(--back-color);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 50px;
+  }
+
+  .tentang-kami .content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .tentang-kami .text {
+    flex: 1 1 500px;
+  }
+
+  .tentang-kami .text h3 {
+    color: var(--back-color);
+    margin-bottom: 10px;
+  }
+
+  .tentang-kami .text p {
+    color: var(--back-color);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .tentang-kami .text ul {
+    list-style: square;
+    padding-left: 20px;
+    color: var(--back-color);
+    margin-bottom: 25px;
+  }
+
+  .tentang-kami .image {
+    flex: 1 1 400px;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .tentang-kami .content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .tentang-kami .image img {
+      max-width: 300px;
+    }
+  }
+/* ======================================== */
+/* ======================================== */
+
+  
+
+/* ======================================== */
+/* ======================================== */
+
+
+.footer {
+    margin: 3rem;
+    text-align: center;
+}
+
+.footer img {
+    width: 10rem;
+}
+
+.footer .link a i {
+    color: var(--back-color);
+    font-size: 1.5rem;
+}
+/* =============================================================== */
+/* =============================================================== */
+/* =============================================================== */
+
+@media (max-width: 575.98px) {
+    .navbar .menu-nav {
+        display: none;
+    }
+
+    .page-one {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .materi {
+    flex-direction: column;
+    padding: 0;
+    }
+
+    .mat {
+        width: 100%;
+    }
+
+    .motfdu {
+        bottom: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        transform: rotate(90deg);
+        width: 30rem;
+    }
+
+    .page-three {
+        padding: 3rem 1rem;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-belajar {
+        grid-template-columns: repeat(2, auto);
+        gap: 10px 10px;
+        /* margin: 10px auto; */
+        justify-content: center;;
+    }
+
+    .card-blj {
+        width: 40vw;
+        height: 195px;
+        /* height: 45vh; */
+    }
+
+    .bahasa {
+        flex-direction: column;
+    }
+
+    .bahasa-text {
+        width: 100%;
+        padding: 0;
+    }
+
+    .tnya {
+        display: none;
+    }
+
+    .swiper {
+    height: 30rem;
+    }
+
+    .item {
+        height: 15rem;
+        width: 9rem;
+        border-radius: 10px;
+    }
+
+    .page-four {
+        margin: 1rem;
+        flex-direction: column;
+        height: auto;
+    }
+/* =================================== */
+    /* .page-five {
+
+    } */
+/* =================================== */
+    .page-six {
+        margin: 1.5rem 1rem;
+    }
+
+    .page-seven h2 {
+        margin: 0 1rem;
+    }
+
+    .side-nav {
+        margin-top: 12.5vw;
+    }
+
+    .bottom {
+        height: 10rem;
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+    }
+
+    .bottom img {
+        width: 11rem;
+    }
+}
+
+/* =============================================================== */
+/* =============================================================== */
+/* =============================================================== */
+@media (min-width: 576px) and (max-width:767.98px){
+    .navbar .menu-nav {
+        display: none;
+    }
+
+    .materi {
+    grid-template-columns: repeat(1, 1fr);
+    }
+
+    .item {
+        height: 15rem;
+        width: 12rem;
+        border-radius: 10px;
+    }
+
+    .page-four {
+        margin: 1.5rem 1rem;
+    }
+
+    .page-five {
+        margin: 1.5rem 1rem;
+    }
+
+    .page-six {
+        margin: 1.5rem 1rem;
+    }
+
+    .page-seven h2 {
+        margin: 0 1rem;
+    }
+
+    .side-nav {
+        margin-top: 12.5vw;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width:991.98px) {
+    .navbar i {
+        display: none;
+    }
+
+    .image-info {
+    height: 28rem;
+    }
+
+    main {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 992px) and (max-width:1199.98px) {
+    .navbar i {
+        display: none;
+    }
+
+    .page-three .grid-two {
+        justify-content: center;
+    }
+
+    .image-info {
+    height: 28rem;
+    }
+
+    main {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1200px) and (max-width:1399.98px) {
+    .navbar i {
+        display: none;
+    }
+
+    .page-three .grid-two {
+        justify-content: center;
+    }
+
+    .image-info {
+    height: 28rem;
+    }
+
+    main {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1400px) {
+    .navbar i {
+        display: none;
+    }
+
+    .image-info {
+    height: 28rem;
+    }
+
+    main {
+    display: flex;
+    align-items: center;
+  }
+}
+

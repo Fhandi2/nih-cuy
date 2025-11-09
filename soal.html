@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latihan Soal – VEVEU EVAV</title>
+<style>
+  :root {
+    --accent: #242c2a;
+    --bg: #ffffff;
+    --text: #222;
+    --card: #f8f8f8;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 720px;
+    background: var(--card);
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+    color: var(--accent);
+    margin: 0;
+  }
+
+  .timer {
+    background: var(--accent);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .progress {
+    background: rgba(0,0,0,0.08);
+    height: 8px;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .stage {
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .slides {
+    display: flex;
+    width: 100%;
+    transition: transform 0.4s ease;
+  }
+
+  .card {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  h2 {
+    font-size: 18px;
+    color: var(--accent);
+    margin: 0;
+  }
+
+  .option {
+    background: #fff;
+    padding: 12px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    transition: all 0.25s ease;
+  }
+
+  .option:hover {
+    border-color: var(--accent);
+    background: #f4fffa;
+  }
+
+  .option.selected {
+    border-color: var(--accent);
+    background: #e9fff7;
+    font-weight: 600;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  button {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  button:hover { transform: translateY(-2px); }
+
+  .primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .secondary {
+    background: #f2f2f2;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+
+  .disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* ✅ Gambar gak bikin jarak aneh */
+  img.qimage {
+    width: 100%;
+    height: auto;
+    max-height: clamp(160px, 30vw, 240px);
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* kalau gak ada gambar, teks langsung nempel */
+  .card:not(:has(img)) h2 {
+    margin-top: 0;
+  }
+
+  /* ✅ Tampilan hasil latihan di tengah */
+  #resultCard {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .result {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+  }
+
+  .score {
+    font-size: 32px;
+    color: var(--accent);
+    font-weight: 800;
+    margin: 16px 0;
+  }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 16px; }
+    h2 { font-size: 16px; }
+    .option { font-size: 14px; }
+    .header h1 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <h1>Latihan Soal VEVEU EVAV</h1>
+    <div class="timer" id="timer">05:00</div>
+  </div>
+
+  <div class="progress"><div class="progress-fill" id="bar"></div></div>
+
+  <div class="stage">
+    <div class="slides" id="slides"></div>
+  </div>
+
+  <div class="controls">
+    <button class="secondary" id="prevBtn" onclick="prev()">Sebelumnya</button>
+    <div style="display:flex;gap:8px;">
+      <button class="secondary" onclick="finish()">Akhiri Latihan</button>
+      <button class="primary" id="nextBtn" onclick="next()">Selanjutnya</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const questions = [
+  {
+    text: "Apa ibu kota dari Maluku Tenggara?",
+    options: ["Ambon", "Tual", "Langgur"],
+    correct: "Langgur"
+  },
+  {
+    text: "Bahasa Kei termasuk dalam rumpun bahasa apa?",
+    options: ["Austronesia", "Melanesia", "Papuan"],
+    correct: "Austronesia"
+  },
+  {
+    text: "Hewan apakah ini dalam Bahasa Kei?",
+    image: "asset/cewek.png",
+    options: ["Ngafan", "Wutun", "Ngan"],
+    correct: "Ngafan"
+  },
+  {
+    text: "Apa arti kata “Evav” dalam Bahasa Kei?",
+    options: ["Laut", "Tanah", "Langit"],
+    correct: "Tanah"
+  }
+];
+
+let user = {};
+let index = 0;
+let time = 300;
+let timerInterval;
+
+const slides = document.getElementById("slides");
+const bar = document.getElementById("bar");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+function renderQuestions() {
+  slides.innerHTML = questions.map((q, i) => `
+    <div class="card" data-q="q${i}">
+      ${q.image ? `<img src="${q.image}" alt="gambar soal" class="qimage">` : ""}
+      <h2>${i + 1}. ${q.text}</h2>
+      ${q.options.map(opt => `
+        <div class="option" onclick="choose(this)">${opt}</div>
+      `).join('')}
+    </div>
+  `).join('') + `
+    <div class="card" id="resultCard">
+      <div class="result">
+        <h2>Hasil Latihan</h2>
+        <div class="score" id="score">0 / ${questions.length * 10}</div>
+        <button class="primary" onclick="restart()">Ulangi</button>
+      </div>
+    </div>
+  `;
+}
+
+function choose(opt) {
+  const card = opt.closest('.card');
+  const qid = card.dataset.q;
+  card.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  opt.classList.add('selected');
+  user[qid] = opt.textContent.trim();
+}
+
+function updateView() {
+  slides.style.transform = `translateX(-${index * 100}%)`;
+  bar.style.width = `${(index / questions.length) * 100}%`;
+  prevBtn.disabled = index === 0;
+  prevBtn.classList.toggle('disabled', index === 0);
+  if (index === questions.length) {
+    nextBtn.disabled = true;
+    prevBtn.disabled = true;
+    nextBtn.classList.add('disabled');
+    prevBtn.classList.add('disabled');
+  } else {
+    nextBtn.disabled = false;
+    nextBtn.classList.remove('disabled');
+    nextBtn.textContent = (index === questions.length - 1) ? "Lihat Hasil" : "Selanjutnya";
+  }
+}
+
+function next() {
+  if (index === questions.length - 1) { finish(); return; }
+  if (index < questions.length) { index++; updateView(); }
+}
+
+function prev() {
+  if (index > 0) { index--; updateView(); }
+}
+
+function finish() {
+  let score = 0;
+  questions.forEach((q, i) => {
+    if (user[`q${i}`] === q.correct) score += 10;
+  });
+  document.getElementById("score").textContent = `${score} / ${questions.length * 10}`;
+  index = questions.length;
+  updateView();
+  stopTimer();
+}
+
+function restart() {
+  user = {};
+  index = 0;
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  updateView();
+  time = 300;
+  startTimer();
+}
+
+function startTimer() {
+  stopTimer();
+  timerInterval = setInterval(() => {
+    if (index === questions.length) { clearInterval(timerInterval); return; }
+    time--;
+    let m = Math.floor(time / 60).toString().padStart(2, '0');
+    let s = (time % 60).toString().padStart(2, '0');
+    document.getElementById("timer").textContent = `${m}:${s}`;
+    if (time <= 0) { finish(); clearInterval(timerInterval); }
+  }, 1000);
+}
+
+function stopTimer() { clearInterval(timerInterval); }
+
+renderQuestions();
+updateView();
+startTimer();
+</script>
+</body>
+</html>
